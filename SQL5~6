@@ -1,0 +1,88 @@
+SELECT COUNT (*) FROM sample51;
+
+SELECT COUNT(*) FROM smample WEHRE name = 'A'
+
+SELECT COUNT(no), COUNT(name) FROM sample51;
+
+SELECT DISTINCT name FROM sample51;
+
+SELECT COUNT(ALL name), COUNT(DISTINCT name) FROM sample51;
+
+SELECT SUM(quantity) FROM sample51;
+
+SELECT AVG(quantity), SUM(quantity)/COUNT(quantity) FROM sample51;
+
+SELECT MIN(quantity), MAX(quantity), MIN(name), MAX(name) FROM sample51;
+
+SELECT name FROM sample51 GROUP BY name;
+
+SELECT name, COUNT(name), SUM(quantity) FROM sample51 GROUP BY name;
+
+SELECT name, COUNT(name) FROM sample51 GROUP BY name HAVING COUNT(name) = 1;
+
+SELECT MIN(no), name, SUM(quantity) FROM sample51 GROUP BY name;
+
+DELETE FROM sample51 WHERE a = (SELECT MIN(a) FROM sample51); 
+
+SELECT
+ (SELECT COUNT(*) FROM sample51) AS sql;
+ (SELECT COUNT(*) FROM sample54) AS sq2;
+
+INSERT INTO sample 542 SELECT * FROM sample 543;
+
+UPDATE sample551 SET a = '있음' WHERE 
+  EXISTS (SELECT * FROM sample 552 WHERE no2 = no);
+
+UPDATE sample551 SET a = '없음' WHERE
+  NOT EXISTS (SELECT * FROM sample552 WHERE no2 = no);
+
+UPDATE sample551 SET a = '있음' WHERE
+  EXISTS (SELECT * FROM sample552 WEHRE sample552.no2=sample551.no);
+
+SELECT * FROM sample551 WHERE no IN (3, 5);
+
+SELECT * FROM sample551 WHERE no IN
+  (SELECT no2 FROM sample 552);
+
+CREATE TABLE sample62 (
+  no INTEGER NOT NULL,
+  a VARCHAR(30),
+  b DATE);  
+DESC sample62;
+
+DROP TABLE 테이블명
+
+TRUNCATE TABLE 테이블명
+
+ALTER TABLE sample62 ADD newcol INTEGER;
+DESC sample62;
+
+ALTER TABLE sample62 MODIFY newcol VARCHAR(20);
+DESC sample62;
+
+ALTER TABLE sample62 CHANGE newcol c VARCHAR(20);
+DESC sample62;
+
+ALTER TABLE sample62 DROP c;
+DESC sample62;
+
+ALTER TABLE sample631 MODIFY c VARCHAR(30) NOT NULL;
+
+CREATE TABLE sample634(
+  p INTEGER NOT NULL,
+  a VARCHAR(30),
+  CONSTRAINT pkey_sample634 PRIMARY KEY(p)
+);
+
+CREATE INDEX isample65 ON sample62(no);
+
+DROP INDEX isample65 ON sample62;
+
+EXPLAIN SELECT * FROM sample62 WHERE a = 'a';
+
+CREATE VIEW sample_view_67 AS SELECT * FROM sample54;
+SELECT * FROM sample_view_67;
+
+DROP VIEW ample_view_67;
+
+
